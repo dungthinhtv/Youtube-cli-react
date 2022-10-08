@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import { apiUrl } from '../constants';
+import { API_URL } from '../constants';
 
 const Container = styled.div`
   flex: 2;
@@ -13,7 +13,7 @@ const Recommendation = ({ tags }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`${apiUrl}/videos/tags?tags=${tags}`);
+      const res = await axios.get(`${API_URL}/videos/tags?tags=${tags}`);
       setVideos(res.data);
     };
     fetchVideos();

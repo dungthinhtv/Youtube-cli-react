@@ -10,7 +10,7 @@ import app from '../firebase';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import { apiUrl } from '../constants';
+import { API_URL } from '../constants';
 
 const Container = styled.div`
   width: 100%;
@@ -138,9 +138,9 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post(`${apiUrl}/videos`, { ...inputs, tags });
+    const res = await axios.post(`${API_URL}/videos`, { ...inputs, tags });
     setOpen(false);
-    res.status === 200 && navigate(`${apiUrl}/video/${res.data._id}`);
+    res.status === 200 && navigate(`${API_URL}/video/${res.data._id}`);
   };
 
   return (
