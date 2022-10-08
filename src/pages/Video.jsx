@@ -51,11 +51,23 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`${API_URL}/videos/find/${path}`);
+        const videoRes = await axios
+          .get(`${API_URL}/videos/find/${path}`)
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.err(error);
+          });
 
-        const channelRes = await axios.get(
-          `${API_URL}/users/find/${videoRes.data.userId}`
-        );
+        const channelRes = await axios
+          .get(`${API_URL}/users/find/${videoRes.data.userId}`)
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.err(error);
+          });
 
         console.log(channelRes.data);
         setChannel(channelRes.data);
