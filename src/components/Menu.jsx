@@ -19,7 +19,7 @@ import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightne
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// import YouTube from '../img/logo.png';
+import YouTube from '../img/logo.png';
 
 const Container = styled.div`
   flex: 1;
@@ -92,8 +92,8 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Logo>
-            {/* <Img src={YouTube} />
-            YouTube */}
+            {/* <Img src={YouTube} /> */}
+            YouTube
           </Logo>
         </Link>
         <Item>
