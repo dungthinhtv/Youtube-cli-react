@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import YouTube from '../img/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
@@ -19,6 +18,9 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightnessOutlined';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+// import YouTube from '../img/logo.png';
+
 const Container = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgLighter};
@@ -90,8 +92,8 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Logo>
-            <Img src={YouTube} />
-            YouTube
+            {/* <Img src={YouTube} />
+            YouTube */}
           </Logo>
         </Link>
         <Item>
