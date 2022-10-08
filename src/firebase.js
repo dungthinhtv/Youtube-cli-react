@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  apiKey: 'AIzaSyCob4a6V_vWf9O8M87aGfmExQqxjo7Fqa0',
   authDomain: 'clone-bdcd4.firebaseapp.com',
   projectId: 'clone-bdcd4',
   storageBucket: 'clone-bdcd4.appspot.com',
