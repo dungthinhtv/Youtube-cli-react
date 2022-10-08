@@ -60,17 +60,17 @@ const Video = () => {
             console.err(error);
           });
 
-        const channelRes = await axios
-          .get(`${API_URL}/users/find/${videoRes.data.userId}`)
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-            console.err(error);
-          });
+        // const channelRes = await axios
+        //   .get(`${API_URL}/users/find/${videoRes.data.userId}`)
+        //   .then((response) => {
+        //     console.log(response);
+        //   })
+        //   .catch((error) => {
+        //     console.err(error);
+        //   });
 
-        console.log(channelRes.data);
-        setChannel(channelRes.data);
+        // console.log(channelRes.data);
+        // setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
       } catch (err) {
         console.log(err);
