@@ -1,12 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import Comment from './Comment';
 import { API_URL } from '../constants';
 
-const Container = styled.div`
+const Container = styled.div``;
+
+const NewComment = styled.div`
   display: flex;
+  align-items: center;
   gap: 10px;
-  margin: 30px 0px;
 `;
 
 const Avatar = styled.img`
@@ -15,50 +19,44 @@ const Avatar = styled.img`
   border-radius: 50%;
 `;
 
-const Details = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+const Input = styled.input`
+  border: none;
+  border-bottom: 1px solid ${({ theme }) => theme.soft};
   color: ${({ theme }) => theme.text};
-`;
-const Name = styled.span`
-  font-size: 13px;
-  font-weight: 500;
-`;
-
-const Date = styled.span`
-  font-size: 12px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.textSoft};
-  margin-left: 5px;
+  background-color: transparent;
+  outline: none;
+  padding: 5px;
+  width: 100%;
 `;
 
-const Text = styled.span`
-  font-size: 14px;
-`;
+const Comments = ({ videoId }) => {
+  const { currentUser } = useSelector((state) => state.user);
 
-const Comment = ({ comment }) => {
-  const [channel, setChannel] = useState({});
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    const fetchComment = async () => {
-      const res = await axios.get(`${API_URL}/users/find/${comment.userId}`);
-      setChannel(res.data);
+    const fetchComments = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/comments/${videoId}`);
+        setComments(res.data);
+      } catch (err) {}
     };
-    fetchComment();
-  }, [comment.userId]);
+    fetchComments();
+  }, [videoId]);
+
+  //TODO: ADD NEW COMMENT FUNCTIONALITY
 
   return (
     <Container>
-      <Avatar src={channel.img} />
-      <Details>
-        <Name>
-          {channel.name} <Date>1 day ago</Date>
-        </Name>
-        <Text>{comment.desc}</Text>
-      </Details>
+      <NewComment>
+        <Avatar src={currentUser.img} />
+        <Input placeholder="Add a comment..." />
+      </NewComment>
+      {comments.map((comment) => (
+        <Comment key={comment._id} comment={comment} />
+      ))}
     </Container>
   );
 };
 
-export default Comment;
+export default Comments;

@@ -51,15 +51,11 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(
-          `${API_URL}/videos/find/633fb99e36953d49c314dfcf`
-        );
+        const videoRes = await axios.get(`${API_URL}/videos/find/${path}`);
 
         const channelRes = await axios.get(
           `${API_URL}/users/find/${videoRes.data.userId}`
-        );
-
-        console.log(channelRes.data);
+        ); // console.log(channelRes.data);
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
       } catch (err) {
@@ -93,6 +89,8 @@ const Video = () => {
             className="w-full aspect-video"
             src={currentVideo.videoUrl}
             title={currentVideo.title}
+            frameBorder="0"
+            allowFullScreen
           ></iframe>
         </VideoWrapper>
         <Title>{currentVideo.title}</Title>
@@ -142,6 +140,7 @@ const Video = () => {
           </Subscribe>
         </Channel>
         <Hr />
+        <Comments videoId={currentVideo._id} />
       </Content>
       <Recommendation></Recommendation>
     </Container>
