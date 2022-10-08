@@ -51,7 +51,9 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`${API_URL}/videos/find/${path}`);
+        const videoRes = await axios.get(
+          `${API_URL}/videos/find/633fb99e36953d49c314dfcf`
+        );
 
         const channelRes = await axios.get(
           `${API_URL}/users/find/${videoRes.data.userId}`
