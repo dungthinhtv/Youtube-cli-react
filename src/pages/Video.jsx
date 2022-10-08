@@ -51,26 +51,14 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios
-          .get(`${API_URL}/videos/find/${path}`)
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-            console.err(error);
-          });
+        const videoRes = await axios.get(`${API_URL}/videos/find/${path}`);
 
-        // const channelRes = await axios
-        //   .get(`${API_URL}/users/find/${videoRes.data.userId}`)
-        //   .then((response) => {
-        //     console.log(response);
-        //   })
-        //   .catch((error) => {
-        //     console.err(error);
-        //   });
+        const channelRes = await axios.get(
+          `${API_URL}/users/find/${videoRes.data.userId}`
+        );
 
-        // console.log(channelRes.data);
-        // setChannel(channelRes.data);
+        console.log(channelRes.data);
+        setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
       } catch (err) {
         console.log(err);
@@ -136,7 +124,21 @@ const Video = () => {
           </Buttons>
         </Details>
         <Hr />
-
+        <Channel>
+          <ChannelInfo>
+            <Image src={channel.img} />
+            <ChannelDetail>
+              <ChannelName>{channel.name}</ChannelName>
+              <ChannelCounter>{channel.subscribers}</ChannelCounter>
+              <Description>{currentVideo.desc}</Description>
+            </ChannelDetail>
+          </ChannelInfo>
+          <Subscribe onClick={handleSub}>
+            {channel.subscribedUsers?.includes(channel._id)
+              ? 'SUBSCRIBED'
+              : 'SUBSCRIBE'}
+          </Subscribe>
+        </Channel>
         <Hr />
       </Content>
       <Recommendation></Recommendation>
