@@ -93,7 +93,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Logo>
-            <Img src="http://res.cloudinary.com/daxrdiiyr/image/upload/v1665500737/hcdi4umu6c/sejbejnslpyhheqsxp5b.png" />
+            <Img src="https://res.cloudinary.com/daxrdiiyr/image/upload/v1665500737/hcdi4umu6c/sejbejnslpyhheqsxp5b.png" />
             YouTube
           </Logo>
         </Link>
