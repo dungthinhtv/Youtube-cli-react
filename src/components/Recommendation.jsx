@@ -11,13 +11,21 @@ const Container = styled.div`
 const Recommendation = ({ tags }) => {
   const [videos, setVideos] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchVideos = async () => {
+  //     const res = await axios.get(`${API_URL}/videos/tags?tags=${tags}`);
+  //     setVideos(res.data);
+  //   };
+  //   fetchVideos();
+  // }, [tags]);
+
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`${API_URL}/videos/tags?tags=${tags}`);
+      const res = await axios.get(`${API_URL}/videos/`);
       setVideos(res.data);
     };
     fetchVideos();
-  }, [tags]);
+  }, []);
 
   return (
     <Container>
