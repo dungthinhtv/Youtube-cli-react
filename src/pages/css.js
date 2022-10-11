@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  // display: flex;
-  // gap: 24px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  gap: 24px;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-around;
+  // flex-wrap: wrap;
 `;
 
 export const Content = styled.div`
-  // flex: 5;
+  flex: 5;
 
-  width: 270px;
-  margin-bottom: 30px;
+  // width: 270px;
+  // margin-bottom: 30px;
 `;
 export const VideoWrapper = styled.div``;
 

@@ -6,7 +6,8 @@ import { API_URL } from '../constants';
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
 `;
 

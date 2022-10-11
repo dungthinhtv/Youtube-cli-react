@@ -19,8 +19,6 @@ import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightne
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import YouTube from '../img/logo.png';
-
 const Container = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgLighter};
@@ -95,7 +93,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
       <Wrapper>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Logo>
-            {/* <Img src={YouTube} /> */}
+            <Img src="http://res.cloudinary.com/daxrdiiyr/image/upload/v1665500737/hcdi4umu6c/sejbejnslpyhheqsxp5b.png" />
             YouTube
           </Logo>
         </Link>

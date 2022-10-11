@@ -13,11 +13,18 @@ const Container = styled.div`
   gap: 10px;
 `;
 
+const Thumbnail = styled.div`
+
+  width: 100%;  
+  height: ${(props) => (props.type === 'sm' ? '120px' : '240px')};
+
+`;
+
 const Image = styled.img`
   width: 100%;
-  height: ${(props) => (props.type === 'sm' ? '120px' : '240px')};
+  height: 94%;
   background-color: #999;
-  flex: 1;
+  object-fit: cover;
 `;
 
 const Details = styled.div`
@@ -68,7 +75,9 @@ const Card = ({ type, video }) => {
   return (
     <Link to={`/video/${video._id}`} style={{ textDecoration: 'none' }}>
       <Container type={type}>
-        <Image type={type} src={video.imgUrl} />
+        <Thumbnail>
+          <Image type={type} src={video.imgUrl} />
+        </Thumbnail>
         <Details type={type}>
           <ChannelImage type={type} src={channel.img} />
           <Texts>
