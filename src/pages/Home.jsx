@@ -7,8 +7,11 @@ import { API_URL } from '../constants';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    justify-content: space-around;
+  }
 `;
 
 const Home = ({ type }) => {

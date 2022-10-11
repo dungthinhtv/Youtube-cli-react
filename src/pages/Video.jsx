@@ -5,6 +5,7 @@ import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import Comments from '../components/Comments';
 import Card from '../components/Card';
+import './video.css';
 
 import {
   Container,
@@ -48,6 +49,8 @@ const Video = () => {
 
   const [channel, setChannel] = useState({});
 
+  // const [frameHeight, setFrameHeight] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,6 +66,15 @@ const Video = () => {
       }
     };
     fetchData();
+
+    // const frame = document.getElementById('myFrame');
+    // console.log(
+    //   'height',
+    //   frame.contentWindow.document.body.scrollHeight + 'px'
+    // );
+    // setTimeout(() => {
+    //   setFrameHeight(frame.contentWindow.document.body.scrollHeight + 'px');
+    // }, 100);
   }, [path, dispatch]);
 
   const handleLike = async () => {
@@ -85,13 +97,18 @@ const Video = () => {
     <Container>
       <Content>
         <VideoWrapper>
-          <iframe
-            className="w-full aspect-video"
-            src={currentVideo?.videoUrl}
-            title={currentVideo?.title}
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
+          <div class="container">
+            <iframe
+              className="responsive-iframe"
+              src={currentVideo?.videoUrl}
+              title={currentVideo?.title}
+              frameBorder="0"
+              allowFullScreen
+              // id="myFrame"
+              width="100%"
+              // height={frameHeight}
+            />
+          </div>
         </VideoWrapper>
         <Title>{currentVideo?.title}</Title>
         <Details>
