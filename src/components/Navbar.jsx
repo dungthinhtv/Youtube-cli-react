@@ -40,6 +40,10 @@ const Search = styled.div`
   border: 1px solid #ccc;
   border-radius: 3px;
   color: ${({ theme }) => theme.text};
+
+  @media (max-width: 768px) {
+    display:none;
+  }
 `;
 
 const Input = styled.input`
