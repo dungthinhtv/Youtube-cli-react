@@ -6,6 +6,7 @@ import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 import Comments from '../components/Comments';
 import Card from '../components/Card';
 import './video.css';
+import Recommendation from '../components/Recommendation';
 
 import {
   Container,
@@ -24,7 +25,6 @@ import {
   ChannelCounter,
   Description,
   Subscribe,
-  Recommendation,
   Hr,
 } from './css';
 
@@ -49,8 +49,6 @@ const Video = () => {
 
   const [channel, setChannel] = useState({});
 
-  // const [frameHeight, setFrameHeight] = useState();
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,15 +64,6 @@ const Video = () => {
       }
     };
     fetchData();
-
-    // const frame = document.getElementById('myFrame');
-    // console.log(
-    //   'height',
-    //   frame.contentWindow.document.body.scrollHeight + 'px'
-    // );
-    // setTimeout(() => {
-    //   setFrameHeight(frame.contentWindow.document.body.scrollHeight + 'px');
-    // }, 100);
   }, [path, dispatch]);
 
   const handleLike = async () => {
@@ -159,7 +148,7 @@ const Video = () => {
         <Hr />
         <Comments videoId={currentVideo?._id} />
       </Content>
-      <Recommendation></Recommendation>
+      <Recommendation tags={currentVideo?.tags} />
     </Container>
   );
 };

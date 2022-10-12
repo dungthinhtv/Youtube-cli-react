@@ -91,6 +91,9 @@ const Menu = ({ darkMode, setDarkMode }) => {
   return (
     <Container>
       <Wrapper>
+        <i id="menu" class="material-icons">
+          menu
+        </i>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Logo>
             <Img src="https://res.cloudinary.com/daxrdiiyr/image/upload/v1665500737/hcdi4umu6c/sejbejnslpyhheqsxp5b.png" />
